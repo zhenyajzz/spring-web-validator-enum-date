@@ -1,9 +1,11 @@
 package com.example.springwebvalidatorenumdate.controller;
 
 import com.example.springwebvalidatorenumdate.model.Visit;
+import com.example.springwebvalidatorenumdate.model.VisitEnum;
 import com.example.springwebvalidatorenumdate.repo.VisitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,5 +19,10 @@ public class VisitController {
     @GetMapping
     public List<Visit> findVisit(){
         return vr.findAll();
+    }
+
+    @GetMapping("/visit/{name}")
+    public VisitEnum findVisitByEnum(@PathVariable VisitEnum name){
+        return name;
     }
 }
